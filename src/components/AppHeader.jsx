@@ -38,6 +38,17 @@ function AppHeader({ patients, onNewPatientHandler }) {
     });
   }
 
+  function handleDiscardChanges() {
+    updatePatient({
+      id: "",
+      name: "",
+      avatar: "",
+      description: "",
+      website: "",
+    });
+    handleCloseModal();
+  }
+
   function handleSaveNewPatient() {
     let newPatient = { ...patientUpdated };
     newPatient.id = patients.length + 1;
@@ -115,7 +126,7 @@ function AppHeader({ patients, onNewPatientHandler }) {
                 </Form>
               </Modal.Body>
               <Modal.Footer>
-                <Button variant="secondary" onClick={handleCloseModal}>
+                <Button variant="secondary" onClick={handleDiscardChanges}>
                   Close
                 </Button>
                 <Button variant="primary" onClick={handleSaveNewPatient}>

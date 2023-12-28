@@ -44,6 +44,16 @@ function PatientCard({ patient }) {
     });
   }
 
+  function handleDiscardChanges() {
+    updatePatient({
+      name: patient.name,
+      avatar: patient.avatar,
+      description: patient.description,
+      website: patient.website,
+    });
+    handleCloseModal();
+  }
+
   function handleSavePatient() {
     patient.name = patientUpdated.name;
     patient.avatar = patientUpdated.avatar;
@@ -128,7 +138,7 @@ function PatientCard({ patient }) {
             </Form>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleCloseModal}>
+            <Button variant="secondary" onClick={handleDiscardChanges}>
               Close
             </Button>
             <Button variant="primary" onClick={handleSavePatient}>

@@ -1,14 +1,11 @@
-import UsePatients from "./UsePatients";
-import "bootstrap/dist/css/bootstrap.min.css";
-import PatientList from "./PatientList";
+import AppContent from "./AppContent";
+import AppHeader from "./AppHeader";
 
 function App() {
-  const [patients, error] = UsePatients();
-
   return (
     <div>
-      {error !== null && <p>Error fetching patients: {error}</p>}
-      <PatientList patients={patients} />
+      <AppHeader />
+      <AppContent />
     </div>
   );
 }

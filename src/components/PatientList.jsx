@@ -4,7 +4,6 @@ import PatientCard from "./PatientCard";
 function PatientList({ patients }) {
   return (
     <div>
-      <h1>Patients</h1>
       <CardGroup>
         {patients
           ? patients.map((patient) => (

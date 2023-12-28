@@ -1,4 +1,5 @@
 import { Card } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 import moment from "moment";
 
 function PatientCard({ patient }) {

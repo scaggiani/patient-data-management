@@ -39,10 +39,9 @@ function AppHeader({ patients, onNewPatientHandler }) {
   }
 
   function handleSaveNewPatient() {
-    updatePatient((draft) => {
-      draft.id = patients.lenght + 1;
-    });
-    const newPatientList = [...patients, patientUpdated];
+    let newPatient = { ...patientUpdated };
+    newPatient.id = patients.length + 1;
+    const newPatientList = [...patients, newPatient];
     onNewPatientHandler(newPatientList);
     handleCloseModal();
   }

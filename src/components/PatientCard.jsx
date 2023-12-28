@@ -1,8 +1,15 @@
 import { Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import moment from "moment";
+import { useState } from "react";
 
 function PatientCard({ patient }) {
+  const [showMore, setShowMore] = useState(false);
+
+  function handleMoreClick() {
+    setShowMore(!showMore);
+  }
+
   return (
     <div key={patient.id}>
       <Card style={{ width: "18rem" }}>
@@ -15,6 +22,11 @@ function PatientCard({ patient }) {
             <a href={patient.website} target="_blank" rel="noreferrer">
               Go to Website
             </a>
+            <br />
+            <button onClick={handleMoreClick}>
+              {showMore ? "Hide" : "Show"} details
+            </button>
+            {showMore && <p>{patient.description}</p>}
           </Card.Text>
         </Card.Body>
         <Card.Footer>

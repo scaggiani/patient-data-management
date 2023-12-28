@@ -57,10 +57,9 @@ function PatientCard({ patient }) {
       <Card style={{ width: "18rem" }}>
         <Card.Img className="card-img-top" variant="top" src={patient.avatar} />
         <Card.Body>
-          <Card.Title>
-            {patient.id}. {patient.name}
-          </Card.Title>
+          <Card.Title>{patient.name}</Card.Title>
           <Card.Text>
+            Patient id:{patient.id} <br />
             <a href={patient.website} target="_blank" rel="noreferrer">
               Go to Website
             </a>
@@ -101,7 +100,6 @@ function PatientCard({ patient }) {
                   type="text"
                   value={patientUpdated.avatar}
                   onChange={handleAvatarChange}
-                  placeholder="name@example.com"
                 />
               </Form.Group>
               <Form.Group
@@ -113,7 +111,6 @@ function PatientCard({ patient }) {
                   type="text"
                   value={patientUpdated.website}
                   onChange={handleWebsiteChange}
-                  placeholder="name@example.com"
                 />
               </Form.Group>
               <Form.Group

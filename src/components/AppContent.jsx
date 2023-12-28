@@ -1,9 +1,6 @@
-import UsePatients from "../js/UsePatients";
 import PatientList from "./PatientList";
 
-function AppContent() {
-  const [patients, error] = UsePatients();
-
+function AppContent({ patients, error }) {
   return (
     <div>
       {error !== null && <p>Error fetching patients: {error}</p>}

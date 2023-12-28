@@ -11,7 +11,7 @@ const UseApiResult = (request) => {
       .catch((error) => setError(error));
   }, [request]);
 
-  return [results, error];
+  return [results, setResults, error];
 };
 
 export default UseApiResult;

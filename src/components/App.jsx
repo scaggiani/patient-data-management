@@ -1,14 +1,14 @@
-import UseUsers from "./UseUsers";
+import UsePatients from "./UsePatients";
 import "bootstrap/dist/css/bootstrap.min.css";
-import UserList from "./UserList";
+import PatientList from "./PatientList";
 
 function App() {
-  const [users, error] = UseUsers();
+  const [patients, error] = UsePatients();
 
   return (
     <div>
-      {error !== null && <p>Error fetching users: {error}</p>}
-      <UserList users={users} />
+      {error !== null && <p>Error fetching patients: {error}</p>}
+      <PatientList patients={patients} />
     </div>
   );
 }

@@ -1,24 +1,25 @@
 import { Card } from "react-bootstrap";
 import moment from "moment";
 
-function UserItem({ user }) {
+function PatientCard({ patient }) {
   return (
-    <div key={user.id}>
+    <div key={patient.id}>
       <Card style={{ width: "18rem" }}>
-        <Card.Img className="card-img-top" variant="top" src={user.avatar} />
+        <Card.Img className="card-img-top" variant="top" src={patient.avatar} />
         <Card.Body>
           <Card.Title>
-            {user.id}. {user.name}
+            {patient.id}. {patient.name}
           </Card.Title>
           <Card.Text>
-            <a href={user.website} target="_blank" rel="noreferrer">
+            <a href={patient.website} target="_blank" rel="noreferrer">
               Go to Website
             </a>
           </Card.Text>
         </Card.Body>
         <Card.Footer>
           <small className="text-muted">
-            Created: {moment(user.createdAt).format("MMMM Do YYYY, h:mm:ss a")}
+            Created:{" "}
+            {moment(patient.createdAt).format("MMMM Do YYYY, h:mm:ss a")}
           </small>
         </Card.Footer>
       </Card>
@@ -26,4 +27,4 @@ function UserItem({ user }) {
   );
 }
 
-export default UserItem;
+export default PatientCard;

@@ -1,8 +1,10 @@
-import { Modal, Form, Button } from "react-bootstrap";
+import { Modal, Form, Button, InputGroup } from "react-bootstrap";
 import { useImmer } from "use-immer";
+import { useState } from "react";
 
 function EditPatientModal({ patient, show, onModalChangeHandler }) {
   const handleCloseModal = () => onModalChangeHandler(false);
+  const [validated, setValidated] = useState(false);
   const [patientUpdated, updatePatient] = useImmer({
     name: patient.name,
     avatar: patient.avatar,
@@ -51,6 +53,16 @@ function EditPatientModal({ patient, show, onModalChangeHandler }) {
     patient.website = patientUpdated.website;
     handleCloseModal();
   }
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === true) {
+      handleSavePatient();
+    }
+    event.preventDefault();
+    event.stopPropagation();
+    setValidated(true);
+  };
+
   return (
     <div>
       <Modal show={show} onHide={handleCloseModal}>
@@ -58,53 +70,77 @@ function EditPatientModal({ patient, show, onModalChangeHandler }) {
           <Modal.Title>Edit Patient</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
+          <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Name</Form.Label>
-              <Form.Control
-                type="text"
-                value={patientUpdated.name}
-                onChange={handleNameChange}
-              />
+              <InputGroup hasValidation>
+                <Form.Control
+                  type="text"
+                  value={patientUpdated.name}
+                  onChange={handleNameChange}
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please provide a name.
+                </Form.Control.Feedback>
+              </InputGroup>
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Avatar</Form.Label>
-              <Form.Control
-                type="text"
-                value={patientUpdated.avatar}
-                onChange={handleAvatarChange}
-              />
+              <InputGroup hasValidation>
+                <Form.Control
+                  type="text"
+                  value={patientUpdated.avatar}
+                  onChange={handleAvatarChange}
+                  required
+                  pattern="https?://.+"
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please provide a valid avatar URL.
+                </Form.Control.Feedback>
+              </InputGroup>
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Website</Form.Label>
-              <Form.Control
-                type="text"
-                value={patientUpdated.website}
-                onChange={handleWebsiteChange}
-              />
+              <InputGroup hasValidation>
+                <Form.Control
+                  type="text"
+                  value={patientUpdated.website}
+                  onChange={handleWebsiteChange}
+                  required
+                  pattern="https?://.+"
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please provide a valid website URL.
+                </Form.Control.Feedback>
+              </InputGroup>
             </Form.Group>
             <Form.Group
               className="mb-3"
               controlId="exampleForm.ControlTextarea1"
             >
               <Form.Label>Description</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                value={patientUpdated.description}
-                onChange={handleDescriptionChange}
-              />
+              <InputGroup hasValidation>
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  value={patientUpdated.description}
+                  onChange={handleDescriptionChange}
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please provide a Description.
+                </Form.Control.Feedback>
+              </InputGroup>
             </Form.Group>
+            <Button variant="secondary" onClick={handleDiscardChanges}>
+              Close
+            </Button>{" "}
+            <Button type="submit" variant="primary">
+              Save Changes
+            </Button>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleDiscardChanges}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleSavePatient}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
       </Modal>
     </div>
   );

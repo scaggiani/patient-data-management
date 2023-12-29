@@ -25,18 +25,16 @@ function PatientCard({ patient }) {
               />
               <Card.Body>
                 <Card.Title className="text-center">{patient.name}</Card.Title>
-                <Card.Text className="text-secondary">
-                  <div className="text-center card-link">
-                    <a
-                      className="card-link-a"
-                      href={patient.website}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {patient.website}
-                    </a>
-                  </div>
-                </Card.Text>
+                <div className="text-secondary text-center card-link">
+                  <a
+                    className="card-link-a"
+                    href={patient.website}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {patient.website}
+                  </a>
+                </div>
               </Card.Body>
               <Container className="text-center">
                 <Button

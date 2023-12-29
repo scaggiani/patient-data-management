@@ -1,4 +1,4 @@
-import { Card, Button, Container, Row, Col } from "react-bootstrap";
+import { Card, Button, Container, Row, Col, Collapse } from "react-bootstrap";
 import { useState } from "react";
 import EditPatientModal from "./EditPatientModal";
 import moment from "moment";
@@ -53,7 +53,7 @@ function PatientCard({ patient }) {
                 </Button>
               </Container>
             </Col>
-            {showMore && (
+            <Collapse in={showMore}>
               <Col xs="8">
                 <Container>
                   <Row className="border-bottom card-details">
@@ -106,7 +106,7 @@ function PatientCard({ patient }) {
                   </Row>
                 </Container>
               </Col>
-            )}
+            </Collapse>
           </Row>
         </Container>
 

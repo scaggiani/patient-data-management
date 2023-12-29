@@ -1,6 +1,7 @@
-import { Button, Modal, Form } from "react-bootstrap";
-import { useImmer } from "use-immer";
+import { Button, Modal, Form, InputGroup } from "react-bootstrap";
 import moment from "moment";
+import { useImmer } from "use-immer";
+import { useState } from "react";
 
 function AddPatientModal({
   patients,
@@ -9,7 +10,7 @@ function AddPatientModal({
   onModalChangeHandler,
 }) {
   const handleCloseModal = () => onModalChangeHandler(false);
-
+  const [validated, setValidated] = useState(false);
   const [patientUpdated, updatePatient] = useImmer({
     id: "",
     name: "",
@@ -62,6 +63,16 @@ function AddPatientModal({
     handleDiscardChanges();
   }
 
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === true) {
+      handleSaveNewPatient();
+    }
+    event.preventDefault();
+    event.stopPropagation();
+    setValidated(true);
+  };
+
   return (
     <div>
       <Modal show={show} onHide={handleCloseModal}>
@@ -69,53 +80,75 @@ function AddPatientModal({
           <Modal.Title>Add Patient</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
+          <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Name</Form.Label>
-              <Form.Control
-                type="text"
-                value={patientUpdated.name}
-                onChange={handleNameChange}
-              />
+              <InputGroup hasValidation>
+                <Form.Control
+                  type="text"
+                  value={patientUpdated.name}
+                  onChange={handleNameChange}
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please provide a name.
+                </Form.Control.Feedback>
+              </InputGroup>
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Avatar</Form.Label>
-              <Form.Control
-                type="text"
-                value={patientUpdated.avatar}
-                onChange={handleAvatarChange}
-              />
+              <InputGroup hasValidation>
+                <Form.Control
+                  type="text"
+                  value={patientUpdated.avatar}
+                  onChange={handleAvatarChange}
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please provide an avatar URL.
+                </Form.Control.Feedback>
+              </InputGroup>
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Website</Form.Label>
-              <Form.Control
-                type="text"
-                value={patientUpdated.website}
-                onChange={handleWebsiteChange}
-              />
+              <InputGroup hasValidation>
+                <Form.Control
+                  type="text"
+                  value={patientUpdated.website}
+                  onChange={handleWebsiteChange}
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please provide a Website URL.
+                </Form.Control.Feedback>
+              </InputGroup>
             </Form.Group>
             <Form.Group
               className="mb-3"
               controlId="exampleForm.ControlTextarea1"
             >
               <Form.Label>Description</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                value={patientUpdated.description}
-                onChange={handleDescriptionChange}
-              />
+              <InputGroup hasValidation>
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  value={patientUpdated.description}
+                  onChange={handleDescriptionChange}
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please provide a Description.
+                </Form.Control.Feedback>
+              </InputGroup>
             </Form.Group>
+            <Button variant="secondary" onClick={handleDiscardChanges}>
+              Close
+            </Button>{" "}
+            <Button type="submit" variant="primary">
+              Save Changes
+            </Button>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleDiscardChanges}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleSaveNewPatient}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
       </Modal>
     </div>
   );

@@ -1,0 +1,26 @@
+.btn-primary {
+    background-color: #5798fd;
+    border-color: #5798fd;
+}
+
+.navbar {
+    padding: 0.6em 1.2em;
+}
+
+.form-control {
+    border-radius: 1.2em;
+}
+
+.form-control::placeholder {
+    color: #d7d7d7;
+}
+
+.card {
+    margin: 1em 1em 0 0;
+    min-width: 18em;
+    border-color: #e1e4e8;
+}
+
+.card-body {
+    padding-top: 0;
+}

@@ -1,11 +1,12 @@
+import { Container } from "react-bootstrap";
 import PatientList from "./PatientList";
 
 function AppContent({ patients, error }) {
   return (
-    <div>
+    <Container fluid>
       {error !== null && <p>Error fetching patients: {error}</p>}
       <PatientList patients={patients} />
-    </div>
+    </Container>
   );
 }
 

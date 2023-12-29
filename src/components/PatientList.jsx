@@ -4,7 +4,7 @@ import PatientCard from "./PatientCard";
 function PatientList({ patients }) {
   return (
     <div>
-      <CardGroup>
+      <CardGroup className="justify-content-center">
         {patients
           ? patients.map((patient) => (
               <PatientCard patient={patient} key={patient.id} />

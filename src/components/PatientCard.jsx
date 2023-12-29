@@ -1,4 +1,4 @@
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import moment from "moment";
 import { useState } from "react";
@@ -15,25 +15,34 @@ function PatientCard({ patient }) {
 
   return (
     <div key={patient.id}>
-      <Card style={{ width: "18rem" }}>
+      <Card className="bg-body-tertiary">
         <Card.Img className="card-img-top" variant="top" src={patient.avatar} />
         <Card.Body>
           <Card.Title>{patient.name}</Card.Title>
-          <Card.Text>
-            Patient id:{patient.id} <br />
-            <a href={patient.website} target="_blank" rel="noreferrer">
-              Go to Website
-            </a>
-            <br />
+          <Card.Text className="text-secondary">
+            <div>ID:{patient.id}</div>
+            <div>
+              <a href={patient.website} target="_blank" rel="noreferrer">
+                Website
+              </a>
+            </div>
             <button onClick={handleMoreClick}>
               {showMore ? "Hide" : "Show"} details
             </button>
             {showMore && <p>{patient.description}</p>}
           </Card.Text>
         </Card.Body>
-        <Button variant="primary" onClick={handleShowModal}>
-          Edit Patient
-        </Button>
+        <Container>
+          <div className="d-flex">
+            <Button
+              className="edit-patient-btn"
+              variant="primary"
+              onClick={handleShowModal}
+            >
+              Edit
+            </Button>
+          </div>
+        </Container>
         <EditPatientModal
           patient={patient}
           show={show}

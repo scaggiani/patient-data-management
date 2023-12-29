@@ -3,7 +3,12 @@
     border-color: #5798fd;
 }
 
+.btn-light {
+    background-color: #fffdfd;
+}
+
 .navbar {
+    background-color: #f2f5f9;
     padding: 0.6em 1.2em;
 }
 
@@ -18,7 +23,8 @@
 .card {
     margin: 1em 1em 0 0;
     min-width: 18em;
-    border-color: #e1e4e8;
+    background-color: #fffdfd;
+    border-radius: 1em;
 }
 
 .card-body {

@@ -7,7 +7,7 @@ function AppHeader({ patients, onNewPatientHandler }) {
   const handleShowModal = () => setShow(true);
 
   return (
-    <Navbar className="bg-body-tertiary">
+    <Navbar className="border-bottom sticky-top">
       <Container fluid>
         <Navbar.Brand>
           <img
@@ -17,7 +17,7 @@ function AppHeader({ patients, onNewPatientHandler }) {
             height="40"
             className="d-inline-block align-top"
           />
-          <span className="navbar-title">Patient Data Manager</span>
+          <span className="navbar-title">Patient Manager</span>
         </Navbar.Brand>
         <Button
           className="ms-auto add-patient-btn"

@@ -1,26 +1,10 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
 @import "bootstrap-theme.css";
-
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  width: 100%;
-}
 
 a {
   font-weight: 500;
-  color: #5798fd;
+  color: #a6aeb5;
   text-decoration: inherit;
 }
 
@@ -30,6 +14,13 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #f2f5f9;
+
+  font-family: 'Poppins', sans-serif !important;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1 {
@@ -73,8 +64,11 @@ button:focus-visible {
   border-radius: 1.2em;
 }
 
-.edit-patient-btn {
-  margin: 0.75em 0;
+.card-btn {
+  margin: 0.75em 0.75em 0.75em 0;
+  width: 9em;
+  color: #5798fd;
+  font-size: small;
 }
 
 .card-img-top {
@@ -82,10 +76,19 @@ button:focus-visible {
   height: 5rem;
   border-radius: 50%;
   overflow: hidden;
-  margin: 1em auto;
-  box-shadow: 0 0 10px rgba(0,0,0,.3);
+  margin: 2em auto;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.card-link {
+  font-size: small;
 }
 
 .navbar-title {
   margin-left: 10px;
+  font-size: medium;
+  color: dimgrey;
 }

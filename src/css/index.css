@@ -82,10 +82,22 @@ button:focus-visible {
 .card-title {
   font-weight: bold;
   font-size: medium;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 25ch;
 }
 
 .card-link {
   font-size: small;
+}
+
+.card-link-a {
+  display:inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 28ch;
 }
 
 .navbar-title {

@@ -19,7 +19,12 @@ function PatientCard({ patient }) {
           <Card.Title className="text-center">{patient.name}</Card.Title>
           <Card.Text className="text-secondary">
             <div className="text-center card-link">
-              <a href={patient.website} target="_blank" rel="noreferrer">
+              <a
+                className="card-link-a"
+                href={patient.website}
+                target="_blank"
+                rel="noreferrer"
+              >
                 {patient.website}
               </a>
             </div>
@@ -39,7 +44,7 @@ function PatientCard({ patient }) {
             variant="light"
             onClick={handleMoreClick}
           >
-            {showMore ? "Hide" : "Show"} details
+            {showMore ? "Hide" : "View"} details
           </Button>
         </Container>
         <EditPatientModal

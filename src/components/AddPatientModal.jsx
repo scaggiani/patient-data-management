@@ -99,13 +99,14 @@ function AddPatientModal({
               <Form.Label>Avatar</Form.Label>
               <InputGroup hasValidation>
                 <Form.Control
-                  type="text"
+                  type="url"
                   value={patientUpdated.avatar}
                   onChange={handleAvatarChange}
                   required
+                  pattern="https?://.+"
                 />
                 <Form.Control.Feedback type="invalid">
-                  Please provide an avatar URL.
+                  Please provide a valid avatar URL.
                 </Form.Control.Feedback>
               </InputGroup>
             </Form.Group>
@@ -113,13 +114,14 @@ function AddPatientModal({
               <Form.Label>Website</Form.Label>
               <InputGroup hasValidation>
                 <Form.Control
-                  type="text"
+                  type="url"
                   value={patientUpdated.website}
                   onChange={handleWebsiteChange}
                   required
+                  pattern="https?://.+"
                 />
                 <Form.Control.Feedback type="invalid">
-                  Please provide a Website URL.
+                  Please provide a valid website URL.
                 </Form.Control.Feedback>
               </InputGroup>
             </Form.Group>

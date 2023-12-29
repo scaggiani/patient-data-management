@@ -88,6 +88,20 @@ button:focus-visible {
   max-width: 25ch;
 }
 
+.card-details-title {
+  font-weight: bold;
+  font-size: small;
+  margin: 2em 0 0.75em 0;
+  color: dimgray;
+}
+
+.card-details-content {
+  color: dimgray;
+  text-align: justify;
+  font-size: small;
+  margin-bottom: 0.75em;
+}
+
 .card-link {
   font-size: small;
 }

@@ -1,5 +1,6 @@
 import { Button, Modal, Form } from "react-bootstrap";
 import { useImmer } from "use-immer";
+import moment from "moment";
 
 function AddPatientModal({
   patients,
@@ -8,6 +9,7 @@ function AddPatientModal({
   onModalChangeHandler,
 }) {
   const handleCloseModal = () => onModalChangeHandler(false);
+
   const [patientUpdated, updatePatient] = useImmer({
     id: "",
     name: "",
@@ -54,6 +56,7 @@ function AddPatientModal({
   function handleSaveNewPatient() {
     let newPatient = { ...patientUpdated };
     newPatient.id = patients.length + 1;
+    newPatient.createdAt = moment();
     const newPatientList = [...patients, newPatient];
     onNewPatientHandler(newPatientList);
     handleCloseModal();

@@ -59,7 +59,7 @@ function AddPatientModal({
     newPatient.createdAt = moment();
     const newPatientList = [...patients, newPatient];
     onNewPatientHandler(newPatientList);
-    handleCloseModal();
+    handleDiscardChanges();
   }
 
   return (

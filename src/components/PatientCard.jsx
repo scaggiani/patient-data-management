@@ -26,23 +26,21 @@ function PatientCard({ patient }) {
             {showMore && <p>{patient.description}</p>}
           </Card.Text>
         </Card.Body>
-        <Container>
-          <div className="d-flex">
-            <Button
-              className="card-btn border"
-              variant="light"
-              onClick={handleShowModal}
-            >
-              Edit
-            </Button>
-            <Button
-              className="card-btn border"
-              variant="light"
-              onClick={handleMoreClick}
-            >
-              {showMore ? "Hide" : "Show"} details
-            </Button>
-          </div>
+        <Container className="text-center">
+          <Button
+            className="card-btn border"
+            variant="light"
+            onClick={handleShowModal}
+          >
+            Edit
+          </Button>
+          <Button
+            className="card-btn border"
+            variant="light"
+            onClick={handleMoreClick}
+          >
+            {showMore ? "Hide" : "Show"} details
+          </Button>
         </Container>
         <EditPatientModal
           patient={patient}

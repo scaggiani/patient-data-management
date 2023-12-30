@@ -1,5 +1,7 @@
 # patient-data-management
-Patient Data Management code challenge
+Patient Data Management code challenge: Create a frontend application that enables users to manage patient data.
+
+[Light-it Challenge Reference](https://lightit.slite.page/p/SUFexZWW9Y_Dkz/Frontend-Patient-Data-Management)
 
 ## Installation
 Prerequisites: Node.js, npm, git
@@ -29,14 +31,14 @@ npm run dev
 ## Design decisions 
 - The UI was broken into the following component hierarchy:
 
-* App       
-  * AppHeader
-       * AddPatientModal
-   * AppContent
-       * PatientList  
-           * LoadingStatus
-           * PatientCard
-               * EditPatientModal
+   * App       
+     * AppHeader
+          * AddPatientModal
+      * AppContent
+          * PatientList  
+              * LoadingStatus
+              * PatientCard
+                  * EditPatientModal
 - The useState() hook was used for:
   * Updating patient data
   * Show/hide patient details
